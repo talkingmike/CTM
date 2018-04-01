@@ -31,8 +31,14 @@ def makeInverseIndex(strlist):
     >>> makeInverseIndex(['hello world','hello','hello cat','hellolot of cats']) == {'hello': {0, 1, 2}, 'cat': {2}, 'of': {3}, 'world': {0}, 'cats': {3}, 'hellolot': {3}}
     True
     """
-    pass
-
+    dII = dict()
+    for phrase in list(enumerate(strlist)):
+        for word in phrase[1].split():
+            if word in dII:
+                dII[word].add(phrase[0])
+            else:
+                dII[word] = {phrase[0]}
+    return dII
 
 
 ## 3: (Task 0.6.7) Or Search
@@ -52,7 +58,11 @@ def orSearch(inverseIndex, query):
     >>> idx == makeInverseIndex(['Johann Sebastian Bach', 'Johannes Brahms', 'Johann Strauss the Younger', 'Johann Strauss the Elder', ' Johann Christian Bach',  'Carl Philipp Emanuel Bach'])
     True
     """
-    pass
+    indicesList = [inverseIndex[i] for i in query]
+    orSet = indicesList[0]
+    for s in indicesList:
+        orSet = orSet | s
+    return orSet
 
 
 
@@ -73,5 +83,10 @@ def andSearch(inverseIndex, query):
     >>> idx == makeInverseIndex(['Johann Sebastian Bach', 'Johannes Brahms', 'Johann Strauss the Younger', 'Johann Strauss the Elder', ' Johann Christian Bach',  'Carl Philipp Emanuel Bach'])
     True
     """
-    pass
+    indicesList = [inverseIndex[i] for i in query]
+    andSet = indicesList[0]
+    for s in indicesList:
+        andSet = andSet & s
+    return andSet
+
 

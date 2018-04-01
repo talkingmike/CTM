@@ -1,0 +1,22 @@
+What does the notation f: A -> B mean?
+A function that maps A to B.
+
+What are the criteria for f to be an invertible function?
+Invertible functions must be one-to-one (one input must map to only one 
+output)
+Invertible functions must be onto (each co-domain value must map to an element 
+of the domain)
+
+What is associativity of functional composition?
+Basically: parantheses are not necessary.
+
+What are the criteria for a function to be a probability function?
+
+What is the Fundamental Principle of Probability Theory?
+The probability of an event is the sum of probabilities of outcomes making up 
+the event.
+
+If the input to an invertible function is chosen randomly according to the 
+uniform distribution, what is the distribution of the output?
+If the input is chosen according to a uniform distribution, then the 
+distribution of the output is also uniform.

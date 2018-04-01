@@ -16,5 +16,3 @@ def list2dict(L, keylist): return {k:l for (k,l) in zip(keylist,L)}
 #You will also define listrange2dict(L) in this file.
 #    Input: a list
 #    Output: a dictionary that, for i = 0, 1, 2, . . . , len(L), maps i to L[i]
-
-
