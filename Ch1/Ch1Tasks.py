@@ -1,5 +1,6 @@
-# Task 1.4.1
 from plotting import plot
+
+# Task 1.4.1
 S={2+2j,3+2j,1.75+1j, 2+1j, 2.25+1j, 2.5+1j, 2.75+1j, 3+1j, 3.25+1j}
 plot(S,4)
 
@@ -70,4 +71,17 @@ import image
 data = image.file2image('img01.png')
 bw_data = image.color2gray(data)
 
-pts = {a[b]+b*j for a in bw_data for b in bw_data[0] if a[b] < 120}
+'''
+    Keep these in mind:
+    Something to do with this statement: [[x for x in row] for row in image]
+    
+    S={2+2j,3+2j,1.75+1j, 2+1j, 2.25+1j, 2.5+1j, 2.75+1j, 3+1j, 3.25+1j}
+    plot(S,4)
+
+    Use enumerate(List) to return a tuple of (index,List(item))
+'''
+
+pts = [complex(col_ind,row_ind) for (row_ind,row) in enumerate(bw_data) for 
+       (col_ind,intensity) in enumerate(row) if intensity < 120]
+
+plot({-1j*z+189j for z in pts}, 200, 1)
