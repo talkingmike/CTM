@@ -1,0 +1,20 @@
+Name three fields.
+
+What is the conjugate of a complex number? What does it have to do with the 
+absolute value of a complex number?
+
+How does complex-number addition work?
+
+How does complex-number multiplication work?
+
+How can translation be defined in terms of complex numbers?
+
+How can scaling be defined in terms of complex numbers?
+
+How can rotation by 180 degrees be defined in terms of complex numbers?
+
+How can rotation by 90 degrees be defined in terms of complex numbers?
+
+How does additoin of GF(2) values work?
+
+How does multiplication of GF(2) value work?
