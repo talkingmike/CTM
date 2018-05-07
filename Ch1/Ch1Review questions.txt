@@ -1,20 +1,34 @@
 Name three fields.
+* Complex numbers
+* Real numbers
+* Galois field
 
 What is the conjugate of a complex number? What does it have to do with the 
 absolute value of a complex number?
+* Conjugate of a complex number is the negative of the imaginary portion of 
+  the complex number
+* The absolute value of two members of a conjugate pair is the same
 
 How does complex-number addition work?
+* Add real parts separately, then add imaginary parts separately
 
 How does complex-number multiplication work?
+* Similar to a binomial: FOIL
 
 How can translation be defined in terms of complex numbers?
+* Use addition to translate a complex number
 
 How can scaling be defined in terms of complex numbers?
+* Multiply by a real to scale complex numbers
 
 How can rotation by 180 degrees be defined in terms of complex numbers?
+* Multiply by -1 to rotate by 180 degrees
 
 How can rotation by 90 degrees be defined in terms of complex numbers?
+* Multiply by i to rotate by 90 degrees
 
-How does additoin of GF(2) values work?
+How does addition of GF(2) values work?
+* Addition is modulo 2; simlar to XOR operation
 
 How does multiplication of GF(2) value work?
+* Multiplication is the same as ordinary multiplication.

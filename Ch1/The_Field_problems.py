@@ -18,8 +18,8 @@ def myFilter(L, num):
       [1, 5, 7]
       >>> myFilter([10,15,20,25],10)
       [15, 25]
-    '''
-    pass
+    ''' 
+    return [n for n in L if (n % num != 0)]
 
 
 
@@ -32,7 +32,7 @@ def my_lists(L):
     >>> my_lists([0,3])
     [[], [1, 2, 3]]
     '''
-    pass
+    return [list(range(1, n+1)) for n in L]
 
 
 
@@ -55,7 +55,7 @@ def myFunctionComposition(f, g):
       >>> myFunctionComposition(a,b) == {'x':'twentyfour','y':'twentyfive'}
       True
     '''
-    pass
+    return {n:g[f[n]] for n in f.keys()}
 
 
 
@@ -66,14 +66,17 @@ def mySum(L):
       a list L of numbers
     Output:
       sum of the numbers in L
-Be sure your procedure works for the empty list.
+    Be sure your procedure works for the empty list.
     Examples:
       >>> mySum([1,2,3,4])
       10
       >>> mySum([3,5,10])
       18
     '''
-    pass
+    current = 0
+    for x in L:
+      current = current + x
+    return current
 
 
 
@@ -91,7 +94,11 @@ Be sure your procedure works for the empty list.
       >>> myProduct([-3,2,4])
       -24
     '''
-    pass
+    current = 1
+    for x in L:
+      current = current * x
+    return current
+
 
 
 
@@ -110,7 +117,12 @@ Hint: The value of the Python expression float('infinity') is infinity.
     >>> myMin([0,3,5,-2,-5])
     -5
     '''
-    pass
+    current = float('infinity')
+    for x in L:
+      if x < current:
+        current = x
+    return current
+
 
 
 
@@ -128,8 +140,10 @@ Be sure your procedure works for the empty list.
     >>> myConcat(['what','is','up'])
     'whatisup'
     '''
-    pass
-
+    current = ''
+    for x in L:
+      current = current + x
+    return current
 
 
 ## 8: (Problem 1.7.8) Union of Sets in a List
@@ -146,17 +160,25 @@ Be sure your procedure works for the empty list.
     >>> myUnion([set(),{3,5},{3,5}])
     {3, 5}
     '''
-    pass
+    current = set()
+    for x in L:
+      current = current.union(x)
+    return current
 
 
 
 ## 9: (Problem 1.7.10) Complex Addition Practice
 # Each answer should be a Python expression whose value is a complex number.
-
-complex_addition_a = ...
-complex_addition_b = ...
-complex_addition_c = ...
-complex_addition_d = ...
+'''
+    a) (3+1i) + (2+2i)
+    b) (-1+2i) + (1-1i)
+    c) (2+0i) + (-3+0.001i)
+    d) 4(0+2i) + (0.001 + 1i)
+'''
+complex_addition_a = 5+3j
+complex_addition_b = 0+1j
+complex_addition_c = -1+0.001j
+complex_addition_d = 0.001+9j
 
 
 
@@ -175,12 +197,18 @@ def transform(a, b, L):
     >>> transform(3,2,[1,2,3])
     [5, 8, 11]
     '''
-    pass
+    return [a*n + b for n in L]
+
 
 
 
 ## 11: (Problem 1.7.13) GF(2) Arithmetic
-GF2_sum_1 = ... # answer with 0 or 1
-GF2_sum_2 = ...
-GF2_sum_3 = ...
+'''
+    a) 1 + 1 + 1 + 0
+    b) 1*1 + 0*1 + 0*0 + 1*1
+    c) (1 + 1 + 1) * (1 + 1 + 1 + 1)
+'''
+GF2_sum_1 = 1
+GF2_sum_2 = 0
+GF2_sum_3 = 0
 
