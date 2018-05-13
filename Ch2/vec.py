@@ -12,11 +12,11 @@ def getitem(v,k):
     0
     """
     assert k in v.D
-    pass
+    return v.f[k] if k in v.f else 0
 
 def setitem(v,k,val):
     """
-    Set the element of v with label d to be val.
+    Set the element of v with label d (FOY edit: k?) to be val.
     setitem(v,d,val) should set the value for key d even if d
     is not previously represented in v.f, and even if val is 0.
 
@@ -32,7 +32,7 @@ def setitem(v,k,val):
     0
     """
     assert k in v.D
-    pass
+    v.f[k] = val
 
 def equal(u,v):
     """
@@ -105,7 +105,7 @@ def add(u,v):
     True
     """
     assert u.D == v.D
-    pass
+    return Vec(u.D,{d:getitem(u,d) + getitem(v,d) for d in u.D})
 
 def dot(u,v):
     """
@@ -159,7 +159,7 @@ def scalar_mul(v, alpha):
     >>> u == Vec({'x','y','z','w'},{'x':1,'y':2,'z':3,'w':4})
     True
     """
-    pass
+    return Vec(v.D, {d:alpha*value for d,value in v.f.items()})
 
 def neg(v):
     """
@@ -176,7 +176,7 @@ def neg(v):
     >>> -Vec({'a','b','c'}, {'a':1}) == Vec({'a','b','c'}, {'a':-1})
     True
     """
-    pass
+    return scalar_mul(v, -1)
 
 ###############################################################################################################################
 
