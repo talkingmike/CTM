@@ -59,4 +59,19 @@ def neg(v):
     return scalar_mul(v, -1)
 
 
-# Quiz 2.9.4
+# Quiz 2.9.4: list_dot(u, v)
+def list_dot(u, v):
+    return sum([a*b for (a,b) in zip(u, v)])
+
+
+# Quiz 2.9.15: dot_product_list(needle,haystack)
+def dot_product_list(needle, haystack):
+    needle_len = len(needle)
+    return [list_dot(needle, haystack[i:i+needle_len]) for i in range(
+        len(haystack) - needle_len)]
+
+
+# Quiz 2.10.1: list2vec(L)
+def list2vec(L):
+    return Vec(set(range(len(L))), {k:x for (k,x) in enumerate(L)})
+# Provided in module in vecutil.py
