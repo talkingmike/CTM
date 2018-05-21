@@ -38,9 +38,14 @@ def create_voting_dict(strlist):
     The lists for each senator should preserve the order listed in voting data.
     In case you're feeling clever, this can be done in one line.
     """
-    pass
-
-
+    vd = {}
+    for sen in strlist:
+        strsen = sen.split()
+        sen_vote_list = []
+        for vote in strsen[3:]:
+            sen_vote_list.append(int(vote))
+        vd[strsen[0]] = sen_vote_list
+    return vd
 
 ## 2: (Task 2.12.2) Policy Compare
 def policy_compare(sen_a, sen_b, voting_dict):
