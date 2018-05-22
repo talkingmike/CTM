@@ -47,6 +47,7 @@ def create_voting_dict(strlist):
         vd[strsen[0]] = sen_vote_list
     return vd
 
+
 ## 2: (Task 2.12.2) Policy Compare
 def policy_compare(sen_a, sen_b, voting_dict):
     """
@@ -65,8 +66,7 @@ def policy_compare(sen_a, sen_b, voting_dict):
         
     You should definitely try to write this in one line.
     """
-    pass
-
+    return sum([x*y for (x,y) in zip(voting_dict[sen_a], voting_dict[sen_b])])
 
 
 ## 3: (Task 2.12.3) Most Similar
@@ -89,9 +89,15 @@ def most_similar(sen, voting_dict):
 
     Note that you can (and are encouraged to) re-use your policy_compare procedure.
     """
-    
-    return ""
-
+    similar_factor = -1000
+    similar_sen = ""
+    for compare_sen in voting_dict.keys():
+        compare = policy_compare(sen, compare_sen, voting_dict)
+        if compare > similar_factor:
+            if sen != compare_sen:
+                similar_factor = compare
+                similar_sen = compare_sen
+    return similar_sen
 
 
 ## 4: (Task 2.12.4) Least Similar
@@ -111,15 +117,23 @@ def least_similar(sen, voting_dict):
         >>> least_similar('c', vd)
         'b'
     """
-    pass
-
+    similar_factor = 1000
+    similar_sen = ""
+    for compare_sen in voting_dict.keys():
+        compare = policy_compare(sen, compare_sen, voting_dict)
+        if compare < similar_factor:
+            if sen != compare_sen:
+                similar_factor = compare
+                similar_sen = compare_sen
+    return similar_sen
 
 
 ## 5: (Task 2.12.5) Chafee, Santorum
-most_like_chafee    = ''
-least_like_santorum = '' 
+most_like_chafee    = 'Jeffords'
+least_like_santorum = 'Feingold' 
 
-
+# (Task 2.12.6) How similar are the voting records of the two senators from 
+# your state? Hutchison, Cornyn: 42
 
 ## 6: (Task 2.12.7) Most Average Democrat
 def find_average_similarity(sen, sen_set, voting_dict):
