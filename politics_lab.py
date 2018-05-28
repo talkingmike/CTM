@@ -4,9 +4,6 @@
 # Be sure that the file voting_record_dump109.txt is in the matrix/ directory.
 
 
-
-
-
 ## 1: (Task 2.12.1) Create Voting Dict
 def create_voting_dict(strlist):
     """
@@ -132,8 +129,10 @@ def least_similar(sen, voting_dict):
 most_like_chafee    = 'Jeffords'
 least_like_santorum = 'Feingold' 
 
+
 # (Task 2.12.6) How similar are the voting records of the two senators from 
 # your state? Hutchison, Cornyn: 42
+
 
 ## 6: (Task 2.12.7) Most Average Democrat
 def find_average_similarity(sen, sen_set, voting_dict):
@@ -154,9 +153,11 @@ def find_average_similarity(sen, sen_set, voting_dict):
             sen_set])/len(sen_set))
 
 """
+import politics_lab
 f = open('voting_record_dump109.txt')
 mylist = list(f)
 vd = politics_lab.create_voting_dict(mylist)
+demset = {list_elem.split()[0] for list_elem in mylist if list_elem.split()[1] == 'D'}
 demlist = []
 for list_elem in mylist:
     split_list_elem = list_elem.split()
@@ -170,7 +171,7 @@ for dem_sen in demlist:
         similar_sen = dem_sen
 print('Most average democrat = %s' similar_sen)
 """
-most_average_Democrat = 'Biden'
+# most_average_Democrat = 'Biden'
 
 
 ## 7: (Task 2.12.8) Average Record
@@ -196,13 +197,13 @@ def find_average_record(sen_set, voting_dict):
         >>> find_average_record({'a'}, d)
         [0.0, 1.0, 1.0]
     """
-#    return (sum([policy_compare(sen, sen_set_i, voting_dict) for sen_set_i in 
-#        sen_set])/len(sen_set))
+    avg_vote = [0.0] * len(voting_dict[list(voting_dict.keys())[0]])
+    for sen in sen_set:
+        for i in range(len(voting_dict[sen])):
+            avg_vote[i] = avg_vote[i] + voting_dict[sen][i]/len(sen_set)
+    return avg_vote
 
-#    return [(sum()) / len(sen_set)) for sen in sen_set for 
-
-average_Democrat_record = ... # give the vector as a list
-
+average_Democrat_record = [-0.16279069767441862, -0.2325581395348837, 1.0000000000000007, 0.8372093023255818, 0.9767441860465123, -0.13953488372093023, -0.9534883720930238, 0.8139534883720934, 0.9767441860465123, 0.9767441860465123, 0.906976744186047, 0.7674418604651165, 0.6744186046511629, 0.9767441860465123, -0.511627906976744, 0.9302325581395354, 0.9534883720930238, 0.9767441860465123, -0.3953488372093022, 0.9767441860465123, 1.0000000000000007, 1.0000000000000007, 1.0000000000000007, 0.9534883720930238, -0.4883720930232556, 1.0000000000000007, -0.3255813953488371, -0.06976744186046509, 0.9767441860465123, 0.8604651162790702, 0.9767441860465123, 0.9767441860465123, 1.0000000000000007, 1.0000000000000007, 0.9767441860465123, -0.3488372093023255, 0.9767441860465123, -0.4883720930232556, 0.2325581395348837, 0.8837209302325586, 0.4418604651162789, 0.906976744186047, -0.906976744186047, 1.0000000000000007, 0.906976744186047, -0.30232558139534876]
 
 
 ## 8: (Task 2.12.9) Bitter Rivals
@@ -218,5 +219,13 @@ def bitter_rivals(voting_dict):
         >>> br == ('Fox-Epstein', 'Oyakawa') or br == ('Oyakawa', 'Fox-Epstein')
         True
     """
-    return (..., ...)
-
+    # For each senator, find least similar
+    # If similar factor is greater than current similar factor, set
+    rival_factor = 0
+    for sen_a in voting_dict.keys():
+        for sen_b in voting_dict.keys():
+            sen_compare = policy_compare(sen_a, sen_b, voting_dict)
+            if sen_compare < rival_factor:
+                rival_factor = sen_compare
+                rivals = (sen_a, sen_b)
+    return rivals

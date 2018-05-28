@@ -1,0 +1,52 @@
+What is vector addition?
+Add two vectors...? Addition of corresponding entries.
+
+What is the geometric interpretatiuon of vector addition?
+Place vectors head-to-end and see the result.
+
+What is scalar-vector multiplication?
+Multiply each entry of a vector by the scalar value.
+
+What is the distributive property that involves scalar-vector multiplication 
+but not vector addition?
+A vector will distribute mutliplicatively across a set of summed scalars.
+
+What is the distributive property that involves both scalar-vector 
+multiplication and vector addition?
+A scalar will distribute multiplicatively across a set of summed vectors.
+
+How is scalar-vector multiplication used to represent the line through origin 
+and a given point?
+Multiply each element of the entire set of scalars by the vector to get a line 
+through the origin and the point at the coordinates defined by the vector.
+
+How are scalar-vector multiplication and vector addition used to represent the 
+line through a pair of given points?
+Once a line through the origin is defined, add it (translate) to the second 
+vector to get a vector through the two points.
+
+What is dot-product?
+Multiple corresponding elements of a vector, then sum the results.
+
+What is the homegeneity property that relates dot-product to scalar-vector 
+multiplication?
+Multiplying one of the vectors in a a dot-product is equivalent to multiplying 
+the value of the dot-product.
+
+What is the distributive property that related dot-product to vector addition?
+Dot-product distributes over vector addition.
+
+What is a linear equation (expressed using dot-product)?
+Vector dot vector variable equals scalar.
+
+What is a linear system?
+Several related linear equations
+
+What is an upper-triangular linear system?
+First vector need not have any zeroes, second vector has zero in first 
+position, third vector has zero is first and second positions, etc.
+
+How can one solve an upper-triangular linear system?
+Use backward substitutions. For example, the n-equation is a single value, and 
+that can be used to evaluate the n-1 equation, which can in turn be used to 
+evaluate the n-2 equation, etc.
