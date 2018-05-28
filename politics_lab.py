@@ -150,10 +150,27 @@ def find_average_similarity(sen, sen_set, voting_dict):
         >>> vd == {'Klein':[1,1,1], 'Fox-Epstein':[1,-1,0], 'Ravella':[-1,0,0], 'Oyakawa':[-1,-1,-1], 'Loery':[0,1,1]}
         True
     """
-    return ...
+    return (sum([policy_compare(sen, sen_set_i, voting_dict) for sen_set_i in 
+            sen_set])/len(sen_set))
 
-most_average_Democrat = ... # give the last name (or code that computes the last name)
-
+"""
+f = open('voting_record_dump109.txt')
+mylist = list(f)
+vd = politics_lab.create_voting_dict(mylist)
+demlist = []
+for list_elem in mylist:
+    split_list_elem = list_elem.split()
+    if split_list_elem[1] == 'D':
+        demlist.append(split_list_elem[0])
+similar_factor = -1000
+for dem_sen in demlist:
+    dem_sen_factor = politics_lab.find_average_similarity(dem_sen, demlist, vd)
+    if dem_sen_factor > similar_factor:
+        similar_factor = dem_sen_factor
+        similar_sen = dem_sen
+print('Most average democrat = %s' similar_sen)
+"""
+most_average_Democrat = 'Biden'
 
 
 ## 7: (Task 2.12.8) Average Record
@@ -179,7 +196,10 @@ def find_average_record(sen_set, voting_dict):
         >>> find_average_record({'a'}, d)
         [0.0, 1.0, 1.0]
     """
-    return ...
+#    return (sum([policy_compare(sen, sen_set_i, voting_dict) for sen_set_i in 
+#        sen_set])/len(sen_set))
+
+#    return [(sum()) / len(sen_set)) for sen in sen_set for 
 
 average_Democrat_record = ... # give the vector as a list
 
